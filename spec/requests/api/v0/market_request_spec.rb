@@ -4,32 +4,32 @@ describe "Markets API" do
   it "sends a list of markets" do
     create_list(:market, 3)
 
-    get '/api/v0/market'
-
+    get '/api/v0/markets'
+    
     expect(response).to be_successful
 
-    books = JSON.parse(response.body, symbolize_names: true)
+    markets = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(books.count).to eq(3)
+    expect(markets.count).to eq(3)
 
-    books.each do |book|
-      expect(book).to have_key(:id)
-      expect(book[:id]).to be_an(Integer)
+    markets.each do |market|
+      expect(market).to have_key(:id)
+      expect(market[:id]).to be_an(Integer)
 
-      expect(book).to have_key(:title)
-      expect(book[:title]).to be_a(String)
+      expect(market).to have_key(:title)
+      expect(market[:title]).to be_a(String)
 
-      expect(book).to have_key(:author)
-      expect(book[:author]).to be_a(String)
+      expect(market).to have_key(:author)
+      expect(market[:author]).to be_a(String)
 
-      expect(book).to have_key(:genre)
-      expect(book[:genre]).to be_a(String)
+      expect(market).to have_key(:genre)
+      expect(market[:genre]).to be_a(String)
 
-      expect(book).to have_key(:summary)
-      expect(book[:summary]).to be_a(String)
+      expect(market).to have_key(:summary)
+      expect(market[:summary]).to be_a(String)
 
-      expect(book).to have_key(:number_sold)
-      expect(book[:number_sold]).to be_an(Integer)
+      expect(market).to have_key(:number_sold)
+      expect(market[:number_sold]).to be_an(Integer)
     end
   end
 end

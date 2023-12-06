@@ -2,15 +2,16 @@ require 'rails_helper'
 
 describe "Vendor API" do
   it "sends a list of vendors" do
-    create_list(:vendor, 3)
-
-    get '/api/v0/vendors'
+    create_list(:vendor, 20)
+    create_list(:market, 20)
+    create_list(:market_vendor, 50)
+    get "/api/v0/markets/#{Market.all.first.id}/vendors"
 
     expect(response).to be_successful
 
-    vendors = JSON.parse(response.body, symbolize_names: true)
+    vendors = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(vendors[:data].count).to eq(3)
+    expect(vendors.count).to eq(3)
 
     vendors.each do |vendor|
       expect(vendor).to have_key(:id)

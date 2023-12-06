@@ -43,6 +43,9 @@ group :development, :test do
   gem "webmock"
   gem "vcr"
   gem "shoulda-matchers"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "pry"
 end
 
 group :development do
@@ -52,4 +55,5 @@ end
 
 gem "faraday"
 gem "figaro"
+gem "jsonapi-serializer"
 

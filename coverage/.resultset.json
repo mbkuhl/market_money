@@ -186,6 +186,36 @@
           null
         ]
       },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/factories/market.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/factories/vendor.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          4,
+          4,
+          4,
+          4,
+          null,
+          null
+        ]
+      },
       "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/config/routes.rb": {
         "lines": [
           1,
@@ -197,10 +227,18 @@
           null,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/market.rb": {
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/vendor.rb": {
         "lines": [
           1,
           1,
@@ -215,15 +253,40 @@
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/models/market_vendor_spec.rb": {
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/controllers/api/v0/vendors_controller.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
-          2,
-          2,
           null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/serializers/vendor_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/serializers/market_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -235,33 +298,15 @@
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/models/vendor_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/vendor.rb": {
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/market.rb": {
         "lines": [
           1,
           1,
           1,
           null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/market_request_spec.rb": {
-        "lines": [
-
         ]
       }
     },
-    "timestamp": 1701820284
+    "timestamp": 1701822110
   }
 }

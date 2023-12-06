@@ -19,10 +19,9 @@ class Api::V0::VendorsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   vendor = Vendor.destroy(params[:id])
-  #   render json: status: 204
-  # end
+  def destroy
+    vendor = Vendor.destroy(params[:id])
+  end
 
   private
   def strong_params

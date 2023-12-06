@@ -80,4 +80,21 @@ describe "Vendor API" do
     expect(data[:errors]).to be_a(Array)
     expect(data[:errors].first[:detail]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
   end
+
+  it "delete vendor" do
+    create_list(:vendor, 1)
+
+    expect(Vendor.all.count).to eq(1)
+    vendor = Vendor.all.first
+    expect(vendor.name).to be_a(String)
+    delete "/api/v0/vendors/#{vendor.id}", headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+
+    expect(response).to be_successful
+    expect(response.status).to eq(204)
+
+    expect(response.body).to eq("")
+    expect(Vendor.all.count).to eq(0)
+    vendor = Vendor.all.first
+    expect(vendor).to be nil
+  end
 end

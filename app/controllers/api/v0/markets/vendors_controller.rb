@@ -4,9 +4,5 @@ class Api::V0::Markets::VendorsController < ApplicationController
     render json: VendorSerializer.new(market.vendors.all)
   end
 
-  def show
-    require 'pry'; binding.pry
-    vendor = Vendor.find(params[:vendor_id])
-    render json: VendorSerializer.new(Vendor.find(params[:vendor_id]))
-  end
+
 end

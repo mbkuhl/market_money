@@ -190,24 +190,14 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/factories/market_vendors.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
           null,
           null
         ]
@@ -226,19 +216,11 @@
         "lines": [
           1,
           1,
-<<<<<<< Updated upstream
-          24,
-          24,
-          24,
-          24,
-          24,
-=======
           1,
           1,
           1,
           1,
           1,
->>>>>>> Stashed changes
           null,
           null
         ]
@@ -281,187 +263,15 @@
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/models/market_vendor_spec.rb": {
-<<<<<<< Updated upstream
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/market_vendor.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/models/vendor_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/vendor.rb": {
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/controllers/api/v0/markets_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/market_request_spec.rb": {
-        "lines": [
-          1,
-          null,
           1,
           1,
-          1,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/markets/vendor_request_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/vendor_request_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/controllers/api/v0/vendors_controller.rb": {
-=======
->>>>>>> Stashed changes
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          2,
-          null,
-<<<<<<< Updated upstream
-          1,
-          0,
           null,
           null
         ]
@@ -472,44 +282,6 @@
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/serializers/vendor_serializer.rb": {
-=======
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/market_vendor.rb": {
->>>>>>> Stashed changes
-        "lines": [
-          1,
-          1,
-          1,
-<<<<<<< Updated upstream
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-=======
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/models/vendor_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          2,
->>>>>>> Stashed changes
-          null,
-          null
-        ]
-      },
-<<<<<<< Updated upstream
       "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/serializers/market_serializer.rb": {
         "lines": [
           1,
@@ -526,9 +298,19 @@
           1,
           null,
           1,
-          0,
+          3,
           null,
-=======
+          null
+        ]
+      },
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/market_vendor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/models/vendor.rb": {
         "lines": [
           1,
@@ -544,91 +326,23 @@
           null
         ]
       },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/market_request_spec.rb": {
+      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/app/serializers/vendor_serializer.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
+          null,
+          null,
+          null,
+          null,
           1,
           null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/michaelkuhlmeier/turing_work/3mod/projects/market_money/spec/requests/api/v0/markets/vendor_request_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
->>>>>>> Stashed changes
           null
         ]
       }
     },
-<<<<<<< Updated upstream
-    "timestamp": 1701833170
-=======
-    "timestamp": 1701832099
->>>>>>> Stashed changes
+    "timestamp": 1701840132
   }
 }

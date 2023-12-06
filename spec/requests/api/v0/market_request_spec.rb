@@ -51,28 +51,49 @@ describe "Markets API" do
 
     expect(response).to be_successful
 
-    markets = JSON.parse(response.body, symbolize_names: true)[:data]
+    market = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(markets.count).to eq(3)
+    expect(market).to have_key(:id)
+    expect(market[:id]).to be_an(String)
 
-    markets.each do |market|
-      expect(market).to have_key(:id)
-      expect(market[:id]).to be_an(Integer)
+    attributes = market[:attributes]
+    expect(attributes).to have_key(:name)
+    expect(attributes[:name]).to be_a(String)
 
-      expect(market).to have_key(:title)
-      expect(market[:title]).to be_a(String)
+    expect(attributes).to have_key(:street)
+    expect(attributes[:street]).to be_a(String)
 
-      expect(market).to have_key(:author)
-      expect(market[:author]).to be_a(String)
+    expect(attributes).to have_key(:city)
+    expect(attributes[:city]).to be_a(String)
 
-      expect(market).to have_key(:genre)
-      expect(market[:genre]).to be_a(String)
+    expect(attributes).to have_key(:county)
+    expect(attributes[:county]).to be_a(String)
 
-      expect(market).to have_key(:summary)
-      expect(market[:summary]).to be_a(String)
+    expect(attributes).to have_key(:state)
+    expect(attributes[:state]).to be_an(String)
+    expect(attributes[:state].length).to eq(2)
 
-      expect(market).to have_key(:number_sold)
-      expect(market[:number_sold]).to be_an(Integer)
+    expect(attributes).to have_key(:zip)
+    expect(attributes[:zip]).to be_a(String)
+
+    expect(attributes).to have_key(:lat)
+    expect(attributes[:lat]).to be_a(String)
+
+    expect(attributes).to have_key(:lon)
+    expect(attributes[:lon]).to be_a(String)
+  end
+
+  describe 'sad paths' do
+    it "will gracefully handle if a book id doesn't exist" do
+      get "/api/v0/markets/1"
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+      expect(data[:errors]).to be_a(Array)
+      expect(data[:errors].first[:status]).to eq("404")
+      expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=1")
     end
   end
 end

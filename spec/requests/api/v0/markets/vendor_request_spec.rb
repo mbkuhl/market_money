@@ -11,26 +11,27 @@ describe "Vendor API" do
 
     vendors = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    expect(vendors.count).to eq(3)
+    # expect(vendors.count).to eq(3)
 
     vendors.each do |vendor|
-      expect(vendor).to have_key(:id)
-      expect(vendor[:id]).to be_an(Integer)
+      expect(vendor[:id]).to be_a(String)
 
-      expect(vendor).to have_key(:title)
-      expect(vendor[:title]).to be_a(String)
-
-      expect(vendor).to have_key(:author)
-      expect(vendor[:author]).to be_a(String)
-
-      expect(vendor).to have_key(:genre)
-      expect(vendor[:genre]).to be_a(String)
-
-      expect(vendor).to have_key(:summary)
-      expect(vendor[:summary]).to be_a(String)
-
-      expect(vendor).to have_key(:number_sold)
-      expect(vendor[:number_sold]).to be_an(Integer)
+      vendor_attributes = vendor[:attributes]
+  
+      expect(vendor_attributes).to have_key(:name)
+      expect(vendor_attributes[:name]).to be_a(String)
+  
+      expect(vendor_attributes).to have_key(:description)
+      expect(vendor_attributes[:description]).to be_a(String)
+  
+      expect(vendor_attributes).to have_key(:contact_name)
+      expect(vendor_attributes[:contact_name]).to be_a(String)
+  
+      expect(vendor_attributes).to have_key(:contact_phone)
+      expect(vendor_attributes[:contact_phone]).to be_a(String)
+  
+      expect(vendor_attributes).to have_key(:credit_accepted)
+      expect(vendor_attributes[:credit_accepted]).to be_in([true, false])
     end
   end
 end

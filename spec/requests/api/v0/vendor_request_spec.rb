@@ -104,10 +104,13 @@ describe "Vendor API" do
       "description": "local honey and wax products",
       "contact_name": "Berly Couwer",
       "contact_phone": "8389928383",
-      "credit_accepted": false
+      "credit_accepted": true
     }
     post "/api/v0/vendors", params: new_vendor.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
     vendor_id = Vendor.all.first.id
+    vendor = Vendor.all.first
+    expect(vendor.contact_name).to eq("Berly Couwer")
+    expect(vendor.credit_accepted).to be true
     update_vendor = 
       {
         "contact_name": "Kimberly Couwer",
@@ -116,11 +119,13 @@ describe "Vendor API" do
     
 
     patch "/api/v0/vendors/#{vendor_id}", params: update_vendor.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
-    expect(response).to_not be_successful
+    expect(response).to be_successful
     expect(response.status).to eq(200)
 
-    data = JSON.parse(response.body, symbolize_names: true)
-    expect(data[:errors]).to be_a(Array)
-    expect(data[:errors].first[:detail]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+    attributes = data[:attributes]
+    expect(data[:id]).to eq(vendor_id.to_s)
+    expect(attributes[:contact_name]).to eq("Kimberly Couwer")
+    expect(attributes[:credit_accepted]).to be false
   end
 end

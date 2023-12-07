@@ -65,7 +65,7 @@ describe "Vendor API" do
     expect(vendor_attributes[:credit_accepted]).to be(false)
   end
 
-  it "create vendor" do
+  it "create vendor sad path" do
     new_vendor = {
       "name": "Buzzy Bees",
       "description": "local honey and wax products",
@@ -96,5 +96,31 @@ describe "Vendor API" do
     expect(Vendor.all.count).to eq(0)
     vendor = Vendor.all.first
     expect(vendor).to be nil
+  end
+
+  it "update vendor" do
+    new_vendor = {
+      "name": "Buzzy Bees",
+      "description": "local honey and wax products",
+      "contact_name": "Berly Couwer",
+      "contact_phone": "8389928383",
+      "credit_accepted": false
+    }
+    post "/api/v0/vendors", params: new_vendor.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+    vendor_id = Vendor.all.first.id
+    update_vendor = 
+      {
+        "contact_name": "Kimberly Couwer",
+        "credit_accepted": false
+    }
+    
+
+    patch "/api/v0/vendors/#{vendor_id}", params: update_vendor.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+    expect(response).to_not be_successful
+    expect(response.status).to eq(200)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+    expect(data[:errors]).to be_a(Array)
+    expect(data[:errors].first[:detail]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
   end
 end

@@ -23,6 +23,20 @@ class Api::V0::VendorsController < ApplicationController
     vendor = Vendor.destroy(params[:id])
   end
 
+  def update
+    begin
+      vendor = Vendor.find(params[:id])
+      vendor.update!(strong_params)
+      render json: VendorSerializer.new(vendor), status: 200
+    rescue ActiveRecord::RecordInvalid => exception
+      render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 400))
+      .validation_fail, status: 400
+    rescue ActiveRecord::RecordNotFound => exception
+      render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 404))
+      .serialize_json, status: :not_found
+    end
+  end
+
   private
   def strong_params
     params.permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)

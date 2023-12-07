@@ -24,6 +24,16 @@ class ErrorSerializer
       }
   end
 
+  def invalid_params
+    {
+      "errors": [
+          {
+              detail: @error_object.message
+          }
+        ]
+      }
+  end
+
   def no_market_vendor(market_id, vendor_id)
     {
       "errors": [

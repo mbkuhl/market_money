@@ -43,4 +43,27 @@ describe "Search API" do
     expect(attributes).to have_key(:vendor_count)
     expect(attributes[:vendor_count]).to be_a(Integer)
   end
+
+  it "error invalid params (can't search city without state)" do
+    create_list(:vendor, 20)
+    market = Market.create!(name: "Nob Hill Growers' Market", street: "Lead & Morningside SE", city: "Albuquerque", county: "Bernalillo", state: "New Mexico", lat: "35.077529", lon: "-106.600449")
+    create_list(:market, 20)
+    create_list(:market_vendor, 10)
+    get "/api/v0/markets/search?city=albuquerque&name=Nob hill"
+    expect(response).to_not be_successful
+
+    expect(response.status).to eq(422)
+
+    error = JSON.parse(response.body, symbolize_names: true)[:errors]
+    expect(error.first[:detail]).to eq("Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.")
+
+    get "/api/v0/markets/search?city=albuquerque"
+    expect(response).to_not be_successful
+
+    expect(response.status).to eq(422)
+
+    error = JSON.parse(response.body, symbolize_names: true)[:errors]
+    expect(error.first[:detail]).to eq("Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.")
+
+  end
 end

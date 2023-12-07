@@ -4,7 +4,7 @@ describe "Vendor API" do
   it "sends a list of vendors" do
     create_list(:vendor, 20)
     create_list(:market, 20)
-    create_list(:market_vendor, 50)
+    create_list(:market_vendor, 10)
     get "/api/v0/markets/#{Market.all.first.id}/vendors"
 
     expect(response).to be_successful

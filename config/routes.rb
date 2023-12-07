@@ -14,8 +14,10 @@ Rails.application.routes.draw do
         resources :vendors, only: [:index], controller: 'markets/vendors'
       end
       resources :vendors, only: [:show, :create, :destroy, :update]
-      resources :market_vendors, only: [:create, :destroy]
+      resources :market_vendors, only: [:create]
     end
   end
+
+  delete "/api/v0/market_vendors", to: "api/v0/market_vendors#destroy"
 
 end

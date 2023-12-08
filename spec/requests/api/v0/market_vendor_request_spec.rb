@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Vendor API" do
+describe "MarketVendor API" do
   it "create vendor" do
     create_list(:market, 1)
     create_list(:vendor, 1)

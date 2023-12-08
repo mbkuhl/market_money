@@ -14,7 +14,6 @@ class AtmFacade
 
   def atm_maker(data)
     data[:results].map do |atm_data|
-      require 'pry'; binding.pry
       Atm.new(atm_data)
     end
   end

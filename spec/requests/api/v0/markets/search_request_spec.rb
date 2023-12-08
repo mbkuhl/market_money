@@ -2,10 +2,8 @@ require 'rails_helper'
 
 describe "Search API" do
   it "can search market based on parameters" do
-    create_list(:vendor, 20)
     market = Market.create!(name: "Nob Hill Growers' Market", street: "Lead & Morningside SE", city: "Albuquerque", county: "Bernalillo", state: "New Mexico", lat: "35.077529", lon: "-106.600449")
     create_list(:market, 20)
-    create_list(:market_vendor, 10)
     get "/api/v0/markets/search?city=albuquerque&state=new Mexico&name=Nob hill"
     expect(response).to be_successful
 

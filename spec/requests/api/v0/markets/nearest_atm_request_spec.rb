@@ -7,39 +7,37 @@ describe "Nearest ATM to market API", :vcr do
 
     expect(response).to be_successful
 
-    atm = JSON.parse(response.body, symbolize_names: true)[:data].first
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+    expect(data.count).to eq(10)
+    atm = data.first
+    expect(atm[:id]).to be nil
 
-    expect(market[:id]).to be_a(String)
-
-    attributes = market[:attributes]
-
-    attributes = market[:attributes]
+    attributes = atm[:attributes]
     expect(attributes).to have_key(:name)
-    expect(attributes[:name]).to eq("Nob Hill Growers' Market")
+    expect(attributes[:name]).to eq("ATM")
 
-    expect(attributes).to have_key(:street)
-    expect(attributes[:street]).to eq("Lead & Morningside SE")
-
-    expect(attributes).to have_key(:city)
-    expect(attributes[:city]).to eq("Albuquerque")
-
-    expect(attributes).to have_key(:county)
-    expect(attributes[:county]).to eq("Bernalillo")
-
-    expect(attributes).to have_key(:state)
-    expect(attributes[:state]).to eq("New Mexico")
-
-    expect(attributes).to have_key(:zip)
-    expect(attributes[:zip]).to be nil
+    expect(attributes).to have_key(:address)
+    expect(attributes[:address]).to eq("3902 Central Avenue Southeast, Albuquerque, NM 87108")
 
     expect(attributes).to have_key(:lat)
-    expect(attributes[:lat]).to eq("35.077529")
+    expect(attributes[:lat]).to eq(35.079044)
 
     expect(attributes).to have_key(:lon)
-    expect(attributes[:lon]).to eq("-106.600449")
+    expect(attributes[:lon]).to eq(-106.60068)
     
-    expect(attributes).to have_key(:vendor_count)
-    expect(attributes[:vendor_count]).to be_a(Integer)
+    expect(attributes).to have_key(:distance)
+    expect(attributes[:distance]).to be_a(Float)
   end
+
+  it "will gracefully handle if a book id doesn't exist" do
+    get "/api/v0/markets/1/nearest_atms"
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+    expect(data[:errors]).to be_a(Array)
+    expect(data[:errors].first[:status]).to eq("404")
+    expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=1")
   end
 end

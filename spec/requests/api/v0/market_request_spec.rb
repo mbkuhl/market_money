@@ -84,7 +84,7 @@ describe "Markets API" do
   end
 
   describe 'sad paths' do
-    it "will gracefully handle if a book id doesn't exist" do
+    it "will gracefully handle if a market id doesn't exist" do
       get "/api/v0/markets/1"
 
       expect(response).to_not be_successful

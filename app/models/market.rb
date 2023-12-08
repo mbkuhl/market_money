@@ -3,7 +3,7 @@ class Market < ApplicationRecord
   has_many :vendors, through: :market_vendors
 
   def self.search(params)
-    Market.where("markets.city ilike '%#{params[:city]}%' and markets.state ilike '%#{params[:state]}%' and markets.name ilike '%#{params[:name]}%'")
+    Market.where("city ilike '%#{params[:city]}%' and state ilike '%#{params[:state]}%' and name ilike '%#{params[:name]}%'")
   end
 
   def self.nearest_atms(params)

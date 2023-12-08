@@ -36,4 +36,23 @@ describe "Market Serializer" do
     expect(attributes).to have_key(:lon)
     expect(attributes[:lon]).to be_a(String)
   end
+
+  it "can give cash only" do
+    create_list(:market, 2)
+    cash_market = Market.all.first
+    mixed_market = Market.all.last
+    v1 = Vendor.create!(name: "Buzzy Bees", description: "local honey and wax products", contact_name: "Berly Couwer", contact_phone: "8389928383", credit_accepted: false )
+    v2 = Vendor.create!(name: "Buzzy Bees", description: "local honey and wax products", contact_name: "Berly Couwer", contact_phone: "8389928383", credit_accepted: false )
+    v3 = Vendor.create!(name: "Buzzy Bees", description: "local honey and wax products", contact_name: "Berly Couwer", contact_phone: "8389928383", credit_accepted: true )
+    v4 = Vendor.create!(name: "Buzzy Bees", description: "local honey and wax products", contact_name: "Berly Couwer", contact_phone: "8389928383", credit_accepted: false )
+    MarketVendor.create(market_id: cash_market.id, vendor_id: v1.id)
+    MarketVendor.create(market_id: cash_market.id, vendor_id: v2.id)
+    MarketVendor.create(market_id: mixed_market.id, vendor_id: v3.id)
+    MarketVendor.create(market_id: mixed_market.id, vendor_id: v4.id)
+    
+    markets = MarketSerializer.new(Market.all).to_hash[:data]
+
+    expect(markets.first[:attributes][:cash_only]).to be true
+    expect(markets.last[:attributes][:cash_only]).to be false
+  end
 end

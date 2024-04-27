@@ -7,6 +7,4 @@ class Api::V0::Markets::SearchController < ApplicationController
       render json: MarketSerializer.new(Market.search(params))
     end
   end
-
-
 end

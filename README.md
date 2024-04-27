@@ -43,7 +43,7 @@ This project was completed 14 weeks into learning coding. This was a solo projec
 2. Setup the database: `rails db:{drop,create,migrate,seed}`
 5. Run: `rails db:schema:dump`
 6. Run on local: `rails s`. 
-7. Endpoints can be tested using `http://localhost:3000/` and then the proper route if the front end is not running.
+7. Endpoints can be tested using `http://localhost:5000/` and then the proper route if the front end is not running.
 
 
 ## Versions
